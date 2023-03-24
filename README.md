@@ -1,4 +1,4 @@
-# Proyect Database
+# Project Database
 
 #Technologies
 
@@ -9,7 +9,7 @@
 - Bootstrap
 
 # About
-This Proyect was designed and developed for a volunteer fire station from June to August 2022, it had to meet the followings requirements:
+This Project was designed and developed for a volunteer fire station from June to August 2022, it had to meet the followings requirements:
 
 - Language in spanish
 - Easy visualization
@@ -27,7 +27,7 @@ This Proyect was designed and developed for a volunteer fire station from June t
 
 #About the data
 
-The data shown in this proyect was modified and simulated for privacy reasons.
+The data shown in this project was modified and simulated for privacy reasons.
 
 #About the connection
 
