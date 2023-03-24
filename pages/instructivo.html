@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Instructivo</title>
+</head>
+<body>
+    <header>
+        <img id="escudo" src="../img/Bom.jpg" alt="Escudo">
+        <div id="instit">
+           <h1>Bomberos Voluntarios</h1>
+           <br>
+           <h2>Base de datos</h2>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark text-white">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav flex-row ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="pagPrinc.html">Inicio</a>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="cargaDeDatos.html">Cargar Legajo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="base.php">Ver Legajos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="busquedaLeg.html">Buscar Legajo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="modificarAgregar.html">Modificar datos cargados</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="instructivo.html" style="color: cyan;">Instructivo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exportar.php">Descargas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="borrarDatos.php">Borrar datos</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="../php/cerrarSesion.php" style="color: yellow;">Cerrar Sesión</a>
+                </li>
+            </ul>
+    </nav>
+    <br>
+
+    <div class="acerca">
+        <h2>Instructivo para uso de la Base de Datos</h2><br>
+        <button class="btn btn-light" type="button"><a href="formatos.html" target="_blank">Formatos para cargar</a></button><br><br>
+        <h3>Acceso</h3>
+        <p>Desde la computadora principal (donde está instalada la base de datos) solamente es necesario ingresar desde un navegador a la dirección: localhost/nombeDeLaBaseDeDatos</p>
+        <p>Desde otro dispositivo conectado a la misma red de internet se tiene que ingresar a la dirección: 192.168.100.numeroLocal/nombreDeLaBaseDeDatos</p>
+        <p>Esto da acceso a la página de inicio de sesión, el usuario y contraseña es único y será provisto por el administrador en caso de ser necesario.</p>
+        <p>Las carpetas con los escaneos de los legajos se encuentran alojadas en Google Drive: [mail o dirección de Google Drive]</p>
+        <p>La contraseña de acceso será otorgada también por el administrador.</p>
+        <p>Es fundamental para la seguridad de la información que una vez se haya terminado el trabajo o consulta en la base, se cierre la sesión, para lo cual se encuentra un botón en la barra de navegación y también en partes estratégicas de la página. </p>
+        <p>Se recomienda abrir las mismas en una pestaña de navegación en privado, o no guardar los datos de inicio de sesión en su defecto.</p><br>
+        <h3>Sobre el uso</h3>
+        <p>La interfaz web (página local, o página desde ahora) está pensada para simplificar la consulta, carga, modificación y borrado de datos en la base de datos, la cual originalmente se realiza con un lenguaje de programación que se llama SQL, no es necesario que se aprenda el mismo, pero sí prestar atención a las indicaciones en cada una de las páginas (marcas de agua en los formularios) y este instructivo. Principalmente:</p>
+        <ul>
+            <li>La carga de formularios no debe tener datos vacíos, en el caso de no tener datos se utiliza la palabra NULL.</li>
+            <li>Aunque en la página de carga de datos se visualicen todos los formularios, se deben cargar de a uno a la vez, ya que cada formulario usa una configuración diferente para la carga de los mismos.</li>
+            <li><strong>No se debe hacer uso de las comillas simples ( ‘ )</strong> ya que son usadas por la programación de carga, haciendo que se generen errores internos.</li>
+            <li>El formato de fecha se escribe AAAA-MM-DD (año, mes, día). Esto luego al exportar los datos se interpreta directamente por Excel, u hoja de cálculo que se utilice.</li>
+            <li>Para modificar datos de debe saber el ID del mismo, en consulta de legajo se puede ver debajo de cada tarjeta el ID de modificación, de no tener este campo, se utiliza el número de legajo. Agregar datos a un legajo ya cargado cuenta como modificación (aunque el dato aparezca vacío en la consulta, tiene por defecto el contenido NULL).</li>
+            <li>La modificación requiere que ponga el nombre exacto de la tabla (ej: domicilio, legajo_personal), y de la columna (ej: apellido, fecha_nacimiento). Para lo cual se dejará una página de consulta especial con estas referencias en la página de modificación, y también en forma de anexo al final de esta página (igualmente cargar mal la referencia no dañará la base de datos, solamente no se realizará ninguna acción, teniendo que repetir la carga).</li>
+            <li>Como los nombres de tablas y columnas siguen una convención de no dejar espacios en blanco, sino que se unen mediante guión bajo ( _ ) es posible seleccionar fácilmente los mismos haciendo doble click sobre ellos, ya que los toma como una sola unidad.</li>
+            <li><strong>La página de borrado de datos no tiene una opción de recuperación</strong>. Una vez que los datos son borrados, los mismos tiene que ser cargados de forma completa nuevamente.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <section id="paginas">
+        <h2>Páginas de carga</h2><br>
+        <h4><strong>Inicio</strong></h4><br>
+        <p>Página de bienvenida con recomendaciones importantes y accesos directos.</p>
+        <img src="../img/inicio.jpg" alt="Incio"/>
+        <hr>
+        <h4><strong>Cargar legajo</strong></h4><br>
+        <p>Página principal de carga, posee el acceso para carga de todas las tablas en formatos de formulario.</p>
+        <p>Es importante no dejar campos vacíos. Si no se tiene el dato se debe escribir la palabra reservada NULL. Esto igualmente no se verá en las exportaciones, pero es fundamental para funcionamiento de una base de datos.</p>
+        <p>Las marcas de agua recuerdan el tipo de dato que debe ser colocado cuando varía de la combinación normal de letras, números y símbolos (recordar que no deben utilizarse las comillas simples [ ‘ ]). La recomendación es igualmente consultar el anexo o página de formatos.</p>
+        <img src="../img/cargaleg.jpg" alt="Cargar legajo">
+        <hr>
+        <h4><strong>Ver legajos</strong></h4><br>
+        <p>Página de acceso a los legajos cargados. De forma resumida muestra los datos personales, pudiendo consultar los datos completos de un legajo en específico o utilizar los accesos a descargas para verlos en un formato de tabla.</p>
+        <img src="../img/verleg.jpg" alt="Ver legajos">
+        <hr>
+        <h4><strong>Buscar legajo</strong></h4><br>
+        <p>Página similar a la anterior, pero enfocada a la búsqueda de un legajo en particular.</p>
+        <hr>
+        <h4><strong>Modificar datos cargados</strong></h4><br>
+        <p>En esta página se debe tener especial cuidado con el nombre de las tablas y columnas, como con el formato del nuevo dato. Es prácticamente obligatorio el uso con el anexo o página de formatos. Es fundamental siempre poner el Id de modificación, el mismo se debe consultar antes en la página de búsqueda de legajo, encontrándose señalado entre paréntesis al fina de cada tarjeta.</p>
+        <img src="../img/modif.jpg" alt="Modificar">
+        <hr>
+        <h4><strong>Instructivo</strong></h4><br>
+        <p>Acceso a esta información</p>
+        <hr>
+        <h4><strong>Descargas</strong></h4><br>
+        <p>Página enfocada en las descargas de planillas. Las mismas se exportan en formato cvs, que son fácilmente interpretados por las hojas de cálculo. Esta página es de mucha utilidad para generar archivos de control de datos cargados y faltantes.</p>
+        <img src="../img/descarg.jpg" alt="Descargas">
+        <hr>
+        <h4><strong>Borrar datos</strong></h4><br>
+        <p>Página destinada a la eliminación de datos cargados. Idealmente es mejor modificar un dato en lugar de borrarlo, pero pueden existir casos donde den error o el dato cargado deba retirarse.</p>
+        <p>Para borrar un dato el funcionamiento es similar a la modificación, solo que requiere menos campos:</p>
+        <img src="../img/borrardat.jpg" alt="Borrar datos"><br><br>
+        <h5><strong>Borrar legajos</strong></h5><br>
+        <p>En circunstancias normales la opción de borrar un legajo no debería usarse, pero en determinado caso puede ser necesario.</p>
+        <p>El funcionamiento es el más simple, solo se coloca el legajo.</p>
+        <p>La página tiene un refuerzo visual sobre el impacto de la acción:</p>
+        <img src="../img/dellega.jpg" alt="Borrar legajo">
+        <hr>
+        <h4><strong>Cerrar sesión</strong></h4><br>
+        <p>Es importante para la seguridad y privacidad de la base de datos siempre cerrar la sesión al terminar de hacer uso.</p>
+        <p>Una forma de no guardar los datos de la sesión es ingresar por la navegación en privado.</p>
+        <p>Se puede cerrar la misma desde el botón destacado en la barra de navegación y también luego de cada acción.</p>
+        <img src="../img/exit.jpg" alt="Cerrar sesión">
+    </section>
+
+    <br><hr>
+
+    <h2>Anexo de Formatos de datos y nombres de columnas</h2><hr><br>
+
+    <h6>¡Tip! ¡Los nombres de las columnas y tablas se pueden seleccionar haciendo directamente doble click encima de ellos!</h6><br>
+
+    <h3>Legajo personal = legajo_personal</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_legajo_personal</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">apellido</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">nombres</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">dni</th>
+                <th scope="row">Números</th>
+            </tr>
+            <tr>
+                <th scope="row">fecha_nacimiento</th>
+                <th scope="row">año, mes, día; separados por guión medio(AAAA-MM-DD)</th>
+            </tr>
+            <tr>
+                <th scope="row">estudios_aprobados</th>
+                <th scope="row">0 para NO, 1 para sí (Es una particularidad de las bases de datos)</th>
+            </tr>
+            <tr>
+                <th scope="row">estado_civil</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">hijos</th>
+                <th scope="row">Números</th>
+            </tr>
+            <tr>
+                <th scope="row">grupo_sanguineo</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">factor</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">es_donante</th>
+                <th scope="row">0 para NO, 1 para sí (Es una particularidad de las bases de datos)</th>
+            </tr>
+            <tr>
+                <th scope="row">ingreso_a_bb_vv_de</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">fecha_ingreso_bb_vv</th>
+                <th scope="row">año, mes, día; separados por guión medio(AAAA-MM-DD)</th>
+            </tr>
+            <tr>
+                <th scope="row">grado_con_el_que_ingresa</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">jerarquia_actual</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">celular</th>
+                <th scope="row">Números</th>
+            </tr>
+            <tr>
+                <th scope="row">fijo</th>
+                <th scope="row">Números</th>
+            </tr>
+            <tr>
+                <th scope="row">e_mail</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">archivo</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Domicilio = domicilio</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_domicilio</th>
+                <th scope="row">Números(este campo se genera de forma automática)</th>               
+            </tr>
+            <tr>
+                <th scope="row">calle</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>            
+            <tr>
+                <th scope="row">numero</th>
+                <th scope="row">Números</th>
+            </tr>            
+            <tr>
+                <th scope="row">piso_dpto</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>         
+            <tr>
+                <th scope="row">codigo_postal</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">ciudad</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">provincia</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">pais</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Ascensos = ascensos</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_ascensos</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">fecha</th>
+                <th scope="row">año, mes, día; separados por guión medio(AAAA-MM-DD)</th>
+            </tr>
+            <tr>
+                <th scope="row">acta_N</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">orden_jefatura</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">ascensos_al_grado_de</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Cursos de jerarquía = cursos_de_jerarquia</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_cursos_de_jerarquia</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">fecha</th>
+                <th scope="row">año, mes, día; separados por guión medio(AAAA-MM-DD)</th>
+            </tr>
+            <tr>
+                <th scope="row">curso</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">escuela</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">observaciones</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Altas, ascensos y bajas = altas_ascensos_bajas</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_altas_ascensos_bajas</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">legajo</th>
+                <th scope="row">Números</th>
+            </tr>
+            <tr>
+                <th scope="row">fecha</th>
+                <th scope="row">año, mes, día; separados por guión medio(AAAA-MM-DD)</th>
+            </tr>
+            <tr>
+                <th scope="row">detalle</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Funciones y cargos = funciones_y_cargos</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_funciones_y_cargos</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">cargo_o_funcion</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">periodo</th>
+                <th scope="row">año, mes, día; separados por guión medio(AAAA-MM-DD)</th>
+            </tr>
+            <tr>
+                <th scope="row">jurisdiccion</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">sistema_u_objetivo</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Datos de nacimiento = nacio_en</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_nacio_en</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">ciudad</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">provincia</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">pais</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Examen médico = examen_medico</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_examen_medico</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">talla</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">peso</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">sexo</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">grupo_sanguineo</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">factor</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">contextura</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Antecedentes médicos personales = antecedentes_personales</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_antecedentes_personales</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">enfermedades</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">operaciones</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">habitos</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">alergias_medicamentos</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">alergias_otras</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">identificantes_fisicos</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">estado_dental</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">examen_bucal</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">observaciones</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Tensión arterial = tension_arterial</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_tension_arterial</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">sentado</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">parado</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">acostado</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">pulso</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Cabeza y sentidos = cabeza_sentidos</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_cabeza_sentidos</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">oido</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">vista</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">tacto</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">olfato</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">gusto</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Cuello = cuello</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_cuello</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">adenopatias</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">latidos_patologicos</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Tórax = torax</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_torax</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">ruidos_cardiacos</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">examen_pulmonar</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Abdomen = abdomen</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_abdomen</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">higado</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">intestinos</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">anexos</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">hernias</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">genito_urinario</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">miembros_superiores</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">miembros_inferiores</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">columna_vertebral</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">sistema_osteoarticular</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">sistema_nerviono_central</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">sistema_periferico</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">examenes_complementarios</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Evaluación = evaluacion</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_evaluacion</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">es_apto</th>
+                <th scope="row">0 para NO, 1 para sí (Es una particularidad de las bases de datos)</th>
+            </tr>
+            <tr>
+                <th scope="row">observaciones</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Antecedentes heredofamiliares = antecedentes_heredoFamiliares</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nombre columnas</th>
+                <th scope="col">Caracteres permitidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">id_antecedentes_heredoFamiliares</th>
+                <th scope="row">Números</th>               
+            </tr>
+            <tr>
+                <th scope="row">vinculo_familiar</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">vivo</th>
+                <th scope="row">0 para NO, 1 para sí (Es una particularidad de las bases de datos)</th>
+            </tr>
+            <tr>
+                <th scope="row">muerto</th>
+                <th scope="row">0 para NO, 1 para sí (Es una particularidad de las bases de datos)</th>
+            </tr>
+            <tr>
+                <th scope="row">causas</th>
+                <th scope="row">Letras, números y síbolos (excepto comillas simples [ ' ] )</th>
+            </tr>
+            <tr>
+                <th scope="row">observaciones</th>
+                <th scope="row">año, mes, día; separados por guión medio(AAAA-MM-DD)</th>
+            </tr>
+            <tr>
+                <th scope="row">legajo_personal_id_legajo_personal</th>
+                <th scope="row">Número de legajo al que corresponde la carga</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <footer>
+        &copy; Sitio realizado por Raúl G. Guanca
+        <address>
+           Contact <a href="mailto:raulgguanca@gmail.com">me</a>
+        </address>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

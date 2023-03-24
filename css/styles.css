@@ -1,0 +1,111 @@
+* {
+    margin: 0 auto; 
+}
+
+body {
+    margin: 0 60px;
+    min-height: 100vh;
+    max-width: 1200px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-link{
+    margin: 0 10px;
+    padding: 0;
+    
+  }
+
+.mat-card {
+    border-radius: 32px;
+    margin: 1px auto;
+    padding: 20px;
+    border-color: lightgray;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+.datosExp {
+    margin: 10px auto;
+    font-weight: bolder;
+}
+
+#escudo {
+    display: flexbox;
+    margin: 10px auto;
+}
+
+#instit {
+    font-family: 'Times New Roman', Times, serif;
+    margin: -115px 0px 10px 150px;        
+}
+
+#inSes {
+    margin: 70px auto 200px;    
+}
+
+.subt {
+    margin: 70px auto 30px;
+}
+
+#domicilio, #ascensos {
+    margin: 20px auto 0px;
+}
+
+.navBar {
+    margin-top: 40px;
+}
+
+.grids {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.one {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+
+.two {
+    grid-column: 2 / 3;
+    grid-row: 1;
+ }
+
+ .three {
+    grid-column: 1 / 2;
+    grid-row: 2;
+}
+
+.four {
+    grid-column: 2 / 2;
+    grid-row: 2;
+}
+
+footer {
+    color: gray;
+    text-align: center;
+    font-size: 1em;
+    width: 100%;
+    overflow: hidden;
+}
+
+footer a {
+    color: darkslategray;
+}
+
+h6 {
+    color: green;
+    font-style: italic;
+}
+
+.acerca li {
+    margin: 10px auto;
+}
+
+#busqueda {
+    margin-bottom: 178px;
+}

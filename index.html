@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Base de datos bomberos</title>
+</head>
+<body>
+    <header>
+        <img id="escudo" src="img/Bom.jpg" alt="Escudo">
+        <div id="instit">
+           <h1>Bomberos Voluntarios</h1>
+           <br>
+           <h2>Base de datos</h2>
+        </div>
+    </header>
+
+    <div id="inSes">
+       <form method="POST" action="php/iniciarSesion.php">
+        <h2>Iniciar Sesión</h2><br>
+          <input type="text" name="name" placeholder="usuario" required><br><br>
+          <input type="password" name="contrasenha" maxlength="15" autocomplete="off" placeholder="constraseña" required><br><br>
+          <input id="btnEnv" type="submit" name="enviar" value="Enviar"><br>
+       </form>
+    </div>
+
+    <br><hr><br>
+    <footer>
+        &copy; Sitio realizado por Raúl G. Guanca
+        <address>
+           Contact <a href="mailto:raulgguanca@gmail.com">me</a>
+        </address>
+    </footer>
+</body>
+</html>
