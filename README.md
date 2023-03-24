@@ -13,8 +13,8 @@ This Proyect was designed and developed for a volunteer fire station from June t
 
 - Language in spanish
 - Easy visualization
-- Allow anyone to upload, edit and delete information to the database
-- Easi access to information
+- Allow anyone without database knowledge to upload, edit and delete information to the database
+- Easy access to information
 - Possibility to download the information
 - Backup of digitized files (chosen cloud method)
 
