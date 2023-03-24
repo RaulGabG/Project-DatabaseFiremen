@@ -20,7 +20,7 @@ This Proyect was designed and developed for a volunteer fire station from June t
 
 #Additional resources
 
-- Charge of part de current data to test the funcionality
+- Loading part of the available data to test the functionality
 - A copy of the database was created to be used in the training or practice phase
 - Database user manual
 - Database administration manual
